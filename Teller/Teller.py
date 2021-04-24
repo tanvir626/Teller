@@ -1,5 +1,4 @@
 from tkinter import *
-#
 
 #window
 root=Tk()
@@ -7,27 +6,39 @@ root.title("Text to speech")
 root.iconbitmap(r"logo.ico")
 root.resizable(0,0)
 
-
+#Creating canvas & background
 can=Canvas(root,width=600,height=400,bg="#ACDB57")
 can.pack(fill="both",expand=True)
 
+#Header
 l1=Label(root,text="Text To Speech",font="Arial 28 bold",bg="#ACDB57",bd=2)
 ls=can.create_window(300,30,window=l1)
 
+#Text Box
 e1=Text(root,width=50,height=12,bg="#F1F8A2",font="Arial 15 ")
 es=can.create_window(300,200,window=e1)
 
+
+#Botton
+#Start button
 b1=Button(root,text="Start",width=5,font="Arial 12 bold")
 b1s=can.create_window(300,370,window=b1)
 
+#Stop button
 b2=Button(root,text="Stop",width=5,font="Arial 12 bold")
 b2s=can.create_window(230,370,window=b2)
 
+#Repeat Button
 b3=Button(root,text="Repeat",width=5,font="Arial 12 bold")
 b3s=can.create_window(370,370,window=b3)
 
-l1=Label(root,text="Text To Speech",font="Arial 28 bold",bg="#ACDB57",bd=2)
-ls=can.create_window(300,30,window=l1)
+#Clear button
+def clear():
+	e1.delete(1.0,END)
+
+b3=Button(root,text="Clear",width=5,font="Arial 12 bold",command=clear)
+b3s=can.create_window(550,370,window=b3)
+
 
 
 root.mainloop()
