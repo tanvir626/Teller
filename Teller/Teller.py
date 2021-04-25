@@ -1,4 +1,5 @@
 from tkinter import *
+import pyttsx3
 
 #window
 root=Tk()
@@ -21,7 +22,18 @@ es=can.create_window(300,200,window=e1)
 
 #Botton
 #Start button
-b1=Button(root,text="Start",width=5,font="Arial 12 bold")
+def start():
+	speaker=pyttsx3.init()
+	speaker.setProperty('voice',"english_rp+f4")
+	
+	if not e1.get("1.0","end-1c"):
+		speaker.say("Please write somthing")
+		speaker.runAndWait()
+	else:
+		text=e1.get("1.0","end-1c")
+		speaker.say(text)
+		speaker.runAndWait()
+b1=Button(root,text="Start",width=5,font="Arial 12 bold",command=start)
 b1s=can.create_window(300,370,window=b1)
 
 #Stop button
@@ -29,7 +41,9 @@ b2=Button(root,text="Stop",width=5,font="Arial 12 bold")
 b2s=can.create_window(230,370,window=b2)
 
 #Repeat Button
-b3=Button(root,text="Repeat",width=5,font="Arial 12 bold")
+def repeat():
+	start()
+b3=Button(root,text="Repeat",width=5,font="Arial 12 bold",command=repeat)
 b3s=can.create_window(370,370,window=b3)
 
 #Clear button
