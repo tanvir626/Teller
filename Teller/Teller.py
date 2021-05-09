@@ -19,7 +19,6 @@ ls=can.create_window(300,30,window=l1)
 e1=Text(root,width=50,height=12,bg="#F1F8A2",font="Arial 15 ")
 es=can.create_window(300,200,window=e1)
 
-
 #Botton
 #Start button
 def start():
@@ -37,7 +36,10 @@ b1=Button(root,text="Start",width=5,font="Arial 12 bold",command=start)
 b1s=can.create_window(300,370,window=b1)
 
 #Stop button
-b2=Button(root,text="Stop",width=5,font="Arial 12 bold")
+def stop():
+	speaker.say("")
+	speaker.runAndWait()
+b2=Button(root,text="Stop",width=5,font="Arial 12 bold",command=stop)
 b2s=can.create_window(230,370,window=b2)
 
 #Repeat Button
@@ -52,7 +54,6 @@ def clear():
 
 b3=Button(root,text="Clear",width=5,font="Arial 12 bold",command=clear)
 b3s=can.create_window(550,370,window=b3)
-
 
 
 root.mainloop()
